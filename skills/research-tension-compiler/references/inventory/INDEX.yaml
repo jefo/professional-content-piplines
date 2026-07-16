@@ -1,0 +1,42 @@
+# INDEX — карта всех tension files
+
+clusters:
+  
+  professional-frame:
+    tensions:
+      - id: "tension-01"
+        title: "Role+Knowledge is the wrong model for specialist agents"
+        status: resolved
+      - id: "tension-02"
+        title: "Operational vs Professional Frame — two different questions"
+        status: resolved
+      - id: "tension-03"
+        title: "Methodological Frame → Professional Frame (terminology evolution)"
+        status: exploring
+      - id: "tension-04"
+        title: "Four components of Professional Frame, not one methodology"
+        status: open
+
+  contracts-vs-procedures:
+    tensions:
+      - id: "tension-05"
+        title: "Procedure-based agent design is an anti-pattern"
+        status: resolved
+      - id: "tension-06"
+        title: "Architectural contracts replace workflows as agent substrate"
+        status: resolved
+
+  knowledge-substrate:
+    tensions:
+      - id: "tension-07"
+        title: "Filesystem as native DWH for LLM agents"
+        status: exploring
+      - id: "tension-08"
+        title: "SKILL.md as bootstrap, DWH as primary cognitive environment"
+        status: resolved
+
+  decision-centric-architecture:
+    tensions:
+      - id: "tension-09"
+        title: "Spec cards are anti-pattern for decision-making pages"
+        status: resolved

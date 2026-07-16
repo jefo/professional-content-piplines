@@ -1,0 +1,119 @@
+---
+id: "tension-01"
+title: "Role+Knowledge is the wrong model for specialist agents"
+status: resolved
+---
+
+# ── ИССЛЕДОВАТЕЛЬСКОЕ ДВИЖЕНИЕ ──
+
+observation: >
+  Role prompting produces agents that sound right but make wrong decisions.
+  "Meticulous code reviewer" flags style preferences as bugs — because a
+  meticulous person notices everything. "Rigorous analyst" invents data
+  instead of admitting ignorance — because helpful won over rigorous.
+  The persona leaks across decisions.
+
+contradiction: >
+  We model agent competence as "role + knowledge" — a persona plus domain
+  information. But real specialists have two independent layers:
+  what they're responsible for (job description), and how they think
+  (engineering handbook). These answer completely different questions.
+  Mashing them into one paragraph makes the agent undebuggable.
+
+hypothesis: >
+  Separating responsibility (Operational Frame) from reasoning discipline
+  (Professional Frame) will produce more traceable, debuggable agent behavior.
+  Each axis can be tuned independently without affecting the other.
+
+experiment: >
+  Applied split frames to a code reviewer agent.
+  Before: "be thorough" + "be helpful" in one persona → style flagged as bugs.
+  After: added one rule to Professional Frame — "distinguish observation
+  from judgment. A code smell is not a bug — name which one."
+  Bug reports became accurate. Style noise disappeared.
+  Nothing else in the agent changed. The persona wasn't touched.
+
+current_model: >
+  Three independent axes:
+  Workspace (what exists) → Operational Frame (what I owe) →
+  Professional Frame (how I think) → LLM.
+  No persona anywhere. Each axis debuggable independently.
+
+# ── АРТЕФАКТЫ ──
+
+artifacts:
+  - type: analogy
+    content: >
+      When you hire an engineer, you give them two documents.
+      A Job Description — what they're responsible for.
+      An Engineering Handbook — how they're expected to think.
+      But when we build AI agents, we only write the first one
+      and call it a "persona."
+    ready_to_use: true
+
+  - type: anti_pattern
+    content: >
+      Persona-based prompting: holistic, leaks across decisions, undebuggable.
+      When the agent fails, you can't tell which part of the persona broke.
+
+  - type: design_principle
+    content: >
+      Each axis of competence must be independently debuggable.
+      When the agent does something wrong, you should know exactly
+      which axis to tune — without touching the others.
+
+  - type: open_question
+    content: >
+      How many rules in the Professional Frame is too many?
+      At what point does a reasoning discipline become a straitjacket?
+
+  - type: tradeoff
+    content: >
+      More independent axes = more debuggability and precision.
+      Fewer axes = simpler to write, easier to maintain.
+      Currently exploring: is three the right number?
+
+  - type: unexpected_consequence
+    content: >
+      An agent with split frames sometimes *refuses* to answer —
+      because the Professional Frame says "Unknown is a valid state."
+      Before, the persona would have invented an answer.
+      Refusal turns out to be a feature, not a bug.
+
+# ── ГОТОВЫЕ ФОРМУЛИРОВКИ ──
+
+hooks:
+  - "When you hire an engineer, you give them two documents. But for AI agents, we only write the first one and call it a persona."
+  - "Your AI agent doesn't need a personality. It needs a coordinate system."
+
+key_distinctions:
+  - "Persona is holistic and leaks across decisions. Coordinate system has independent, debuggable axes."
+  - "Operational Frame = what I owe (responsibility). Professional Frame = how I think (reasoning discipline)."
+  - "Workflows are a proxy for mistrust. Contracts are a substrate for reasoning."
+  - "Role-play is a costume. Frames are internal structure."
+
+ready_quotes:
+  - "The role is no longer a persona. It's a cognitive compiler."
+  - "When a persona-based agent fails, you can't debug it. When a frame-based agent fails, you know exactly which axis broke."
+  - "Persona asks the model to play a character. Frames give it a coordinate system."
+
+# ── СЕРИЙНОСТЬ ──
+
+cluster: "professional-frame"
+series_position: 1
+leads_to:
+  - "tension-02"  # почему Operational и Professional — разные вопросы
+  - "tension-04"  # четыре компонента Professional Frame
+
+# ── ОГРАНИЧЕНИЯ ДЛЯ КРАФТА ──
+
+voice_constraints:
+  - "Researcher, not mentor: 'here's what I'm observing' not 'here's what you should do'"
+  - "Show the path. Include the moment of contradiction."
+  - "Frame as current best model, not final truth."
+
+do_not_in_draft:
+  - "Use Gaming DWH as example — use code reviewer or research agent instead"
+  - "Present as finished framework — use 'currently', 'still exploring', 'best model so far'"
+  - "Use internal shorthand (Unknown > Invented without explaining it means)"
+  - "Hide that this emerged from struggle — the contradiction IS the story"

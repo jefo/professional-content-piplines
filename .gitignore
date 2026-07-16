@@ -1,0 +1,10 @@
+# Hermes session artifacts
+.hermes/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
