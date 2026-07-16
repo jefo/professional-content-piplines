@@ -33,11 +33,23 @@ experiment: >
   Bug reports became accurate. Style noise disappeared.
   Nothing else in the agent changed. The persona wasn't touched.
 
+unexpected_result: >
+  Operational Frame alone stabilized behavior but didn't fix reasoning.
+  The agent knew its job — but still thought like a persona, not a specialist.
+  This is what forced the Professional Frame: Operational bounds the
+  responsibility, but not the cognition.
+
 current_model: >
   Three independent axes:
   Workspace (what exists) → Operational Frame (what I owe) →
   Professional Frame (how I think) → LLM.
   No persona anywhere. Each axis debuggable independently.
+
+scope_limitations:
+  - "Confirmed on code reviewer and research analyst agents. Not yet tested on planning agents or multi-step tool-use agents."
+  - "Professional Frame tested with 4-6 rules. Unknown whether 20+ rules degrades reasoning."
+  - "Three axes may not be the final number. The split between Operational and Professional is the key finding — the exact count of axes is secondary."
+  - "Does this generalize beyond technical professions? Untested on creative or managerial agent roles."
 
 # ── Research Progress (P1) ──
 
@@ -49,13 +61,29 @@ research_progress:
       date: 2026-07-11
   assumption_updates:
     - old: "Role + Knowledge is sufficient for specialist agents"
-      new: "Two independent axes (Operational + Professional) produce more traceable behavior"
-      reason: "Persona leaks across decisions. Independent axes debuggable individually."
+      new: "Persona is not enough — the agent needs more structure. But role-play is still LLM-native: it allows heuristic, not procedural behavior."
+      reason: "Persona leaks across decisions. But abandoning role-play entirely seemed wrong — it's what keeps agents non-procedural."
+      date: 2026-07-10
+    - old: "Role-play is LLM-native and sufficient with more structure"
+      new: "Operational Frame fixes one problem (what I owe) but creates another: it describes an employee, not a specialist."
+      reason: "The agent now knows its job. But 'job' ≠ 'profession.' A data analyst in two different companies has the same Professional Frame but different Operational Frames."
+      date: 2026-07-11
+    - old: "Two independent axes (Operational + Professional) produce more traceable behavior"
+      new: "Confirmed. The split makes failures debuggable: each axis tunes independently."
+      reason: "Code reviewer experiment: one rule added to Professional Frame fixed style-vs-bug confusion. Operational Frame untouched."
       date: 2026-07-11
   model_updates:
+    - old: "Role-based prompting (persona + knowledge)"
+      new: "Role-based prompting + Operational Frame"
+      reason: "Persona alone leaks. Adding Operational Frame bounds the agent's responsibility — but still describes an employee, not a specialist."
+      date: 2026-07-10
+    - old: "Operational Frame alone"
+      new: "Two-layer model: Operational Frame + Professional Frame"
+      reason: "Operational Frame answers 'what's my job?' but not 'how do I think?' A real specialist needs both."
+      date: 2026-07-11
     - old: "Two-layer model (Operational + Professional)"
       new: "Three-layer model (Workspace → Operational → Professional → LLM)"
-      reason: "Missing the knowledge environment as a separate axis"
+      reason: "Missing the knowledge environment as a separate axis. The world the agent operates in is not part of its competence — it's the substrate."
       date: 2026-07-11
 
 # ── Relationships (P2) ──

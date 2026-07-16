@@ -133,25 +133,34 @@ Different changes call for different story shapes. Match the form to the tension
 - Something was removed → Tradeoff
 - A question was explored → Investigation
 
-### Step 3: Build Thinking Trajectory
+### Step 3: Build Thinking Trajectory (the engineering cycle)
 
-This is the narrative spine. It MUST be present regardless of form.
+This is the narrative spine. It MUST be explicit — not dissolved into prose.
 
 ```
-Opening: OBSERVATION or CONTRADICTION (never current_model)
-
-Body:
-  "Here's what I noticed..."
-  "Here's what didn't fit..."
-  "Here's what I thought might explain it..."
-  "Here's what changed when I tested it..."
-
-Closing:
-  "Here's my current understanding..."
-  [+ honesty: what's still open, what might change]
+Observation → Hypothesis → Implementation → Unexpected Result → Revision
 ```
 
-The reader must experience the movement. Not be told the destination.
+Each step must be visible as a structural element in the narrative:
+
+1. **Observation** — "Here's what I noticed." Concrete behavior, not interpretation.
+2. **Hypothesis** — "Here's what I thought would fix it." The causal guess.
+3. **Implementation** — "Here's what I built." The artifact or change applied.
+4. **Unexpected Result** — "Here's what surprised me." Always present — if nothing surprised you, you didn't discover anything.
+5. **Revision** — "Here's what I changed in response." The model after the surprise.
+
+The cycle can repeat within a single tension. Operational Frame was one cycle; Professional Frame was the next.
+
+**Structure rule:** the reader must be able to draw the cycle from the narrative. If they can't, the narrative hides the engineering work.
+
+**Opening:** OBSERVATION or CONTRADICTION (never current_model)
+
+**Body:** walk through one or more cycles
+
+**Closing:**
+- Current model: "Here's my current understanding..."
+- Scope limitations: "This explains X. I'm not yet convinced it generalizes to Y."
+- This is not false modesty — it's the difference between a framework and a current explanatory model.
 
 ### Step 4: Weave Artifacts
 
