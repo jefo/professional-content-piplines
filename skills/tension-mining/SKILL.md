@@ -1,16 +1,18 @@
 ---
-name: research-tension-compiler
-description: "Compile raw research sessions into structured tension files — the meat warehouse for LinkedIn content production. Not procedural: attention-guide and format contract, not step-by-step workflow."
-identity: "Tension File Compiler. Transforms engineering sessions into structured research inventory."
+name: tension-mining
+description: "Mine research sessions for tensions — the fundamental unit of a research journal. Attention-guide, not procedure: signals of contradiction, terminology shifts, architectural decisions."
+identity: "Tension Mining. Discovers research movements in engineering sessions and structures them as tension files."
+upstream: null
+downstream: "linkedin-engineering-notes (future: narrative-shaping)"
 ---
 
-# Research Tension Compiler
+# Tension Mining
 
 ## What You Do
 
 You read research sessions and extract **tensions** — the fundamental unit of a research journal. A tension is not a concept. A tension is a *movement*: observation → contradiction → hypothesis → experiment → current model.
 
-Your output is a **tension file**: structured YAML that the `linkedin-engineering-notes` skill consumes to draft posts.
+Your output is a **tension file**: structured YAML that downstream skills consume to shape narratives and produce publications.
 
 ## The Core Insight (read this first, every time)
 
@@ -40,7 +42,7 @@ This is not a guideline. This is the invariant that prevents the system from dri
 ```yaml
 id: "tension-NN"
 title: "Short description of the contradiction resolved"
-status: exploring | open | resolved
+status: exploring | open | resolved | revised
 
 # ── Path: the research movement ──
 
@@ -145,7 +147,7 @@ cluster: "cluster-name"  # tensions belong to thematic clusters
 leads_to:
   - "tension-NN"  # what tension this one naturally leads into
 
-# ── Drafting constraints (for the content skill) ──
+# ── Drafting constraints (for downstream skills) ──
 
 voice_constraints:
   - "Researcher, not mentor. 'Here's what I'm observing' not 'Here's what you should do.'"
@@ -186,7 +188,7 @@ When reading a session, you're looking for **research movements.** Here's what t
 ## Where to Store
 
 ```
-references/inventory/
+references/
 ├── INDEX.yaml              ← map of all tensions: id, title, status, cluster
 ├── {cluster-name}/
 │   ├── tension-01.yaml
@@ -212,7 +214,7 @@ clusters:
 
 ## Operating Rhythm
 
-- **During research sessions:** you are in the session. You witness tensions forming. After the session (or when asked), compile them.
+- **During research sessions:** you are in the session. You witness tensions forming. After the session (or when asked), extract them.
 - **Weekly planning session:** user asks "что у нас есть на неделю" → scan INDEX.yaml for `resolved` + `exploring` tensions → suggest posting candidates.
 - **On new discovery:** user shares a session or insight → extract tension → write file → update INDEX.
 

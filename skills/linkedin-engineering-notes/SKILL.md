@@ -40,12 +40,12 @@ formats:
     stars: 5
     trigger: "deep dive into a single question"
     structure: "Question → Approach → Findings → Open questions"
-upstream: "research-tension-compiler"
+upstream: "tension-mining"
 upstream_contract:
-  skill: "research-tension-compiler"
+  skill: "tension-mining"
   input: "tension file (YAML): observation → contradiction → hypothesis → experiment → current_model + artifacts + hooks + key_distinctions"
-  index: "references/inventory/INDEX.yaml"
-  how_to_load: "skill_view('research-tension-compiler', file_path='references/inventory/INDEX.yaml') to find available tensions. Then skill_view('research-tension-compiler', file_path='references/inventory/{cluster}/tension-NN.yaml') for the full file."
+  index: "references/INDEX.yaml"
+  how_to_load: "skill_view('tension-mining', file_path='references/INDEX.yaml') to find available tensions. Then skill_view('tension-mining', file_path='references/{cluster}/tension-NN.yaml') for the full file."
 pipeline:
   - "1. Load tension file from research-tension-compiler"
   - "2. Pass Draft Gate (mandatory pre-flight checklist — see Draft Gate section)"
