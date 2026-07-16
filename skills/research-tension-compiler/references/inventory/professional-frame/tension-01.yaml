@@ -39,6 +39,39 @@ current_model: >
   Professional Frame (how I think) → LLM.
   No persona anywhere. Each axis debuggable independently.
 
+# ── Research Progress (P1) ──
+
+research_progress:
+  terminology_changes:
+    - old: "Methodological Frame"
+      new: "Professional Frame"
+      reason: "Methodology is only one component. Professional Frame also includes epistemology, heuristics, quality standards, professional intuition."
+      date: 2026-07-11
+  assumption_updates:
+    - old: "Role + Knowledge is sufficient for specialist agents"
+      new: "Two independent axes (Operational + Professional) produce more traceable behavior"
+      reason: "Persona leaks across decisions. Independent axes debuggable individually."
+      date: 2026-07-11
+  model_updates:
+    - old: "Two-layer model (Operational + Professional)"
+      new: "Three-layer model (Workspace → Operational → Professional → LLM)"
+      reason: "Missing the knowledge environment as a separate axis"
+      date: 2026-07-11
+
+# ── Relationships (P2) ──
+
+relationships:
+  refined_by: []
+  extends: []
+  replaces: []
+  supports: ["tension-05"]  # contracts-vs-procedures: same pattern — structure over persona
+  derived_from: []
+
+# ── Public Research Note (P2) ──
+
+research_note_number: 1
+research_note_title: "Your AI agent doesn't need a personality. It needs a coordinate system."
+
 # ── АРТЕФАКТЫ ──
 
 artifacts:

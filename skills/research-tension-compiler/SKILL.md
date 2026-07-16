@@ -24,6 +24,17 @@ The unit of content is **not a concept.** It is a **resolved tension.**
 
 Readers follow researchers, not frameworks. The difference: researchers show the path, including failed hypotheses and terminology corrections.
 
+### Architectural Contract (P0 — invariant)
+
+When drafting a post from a tension file, the opening paragraph **MUST** begin with either:
+
+- **Observation** — what you noticed ("For months I've been observing...")
+- **Contradiction** — what didn't fit ("The standard approach says X. But I kept hitting...")
+
+**NEVER** begin with Current Model.
+
+This is not a guideline. This is the invariant that prevents the system from drifting into "Today I'll explain..." content. If a draft begins with the model, reject it and rewrite from the contradiction.
+
 ## Target Format: Tension File
 
 ```yaml
@@ -49,6 +60,35 @@ experiment: >
 current_model: >
   What I believe now. Possibly still provisional.
 
+# ── Research Progress: how the model evolved (P1) ──
+
+research_progress:
+  terminology_changes:
+    - old: "Methodological Frame"
+      new: "Professional Frame"
+      reason: "Methodology is only one component. Professional Frame also includes epistemology, heuristics, quality standards, intuition."
+      date: 2026-07-11
+  assumption_updates:
+    - old: "Role + Knowledge is sufficient for specialist agents"
+      new: "Two independent axes (Operational + Professional) produce more traceable behavior"
+      reason: "Persona leaks across decisions. Independent axes don't."
+      date: 2026-07-11
+  model_updates:
+    - old: "Two-layer model (Operational + Professional)"
+      new: "Three-layer model (Workspace → Operational → Professional → LLM)"
+      reason: "Missing the knowledge environment as a separate axis"
+      date: 2026-07-11
+
+# ── Relationships: knowledge graph of the research program (P2) ──
+
+relationships:
+  refines: []        # tension-NN — this tension makes more precise
+  extends: []        # tension-NN — this tension adds to
+  replaces: []       # tension-NN — this tension supersedes
+  contradicts: []    # tension-NN — this tension reverses
+  supports: []       # tension-NN — this tension provides evidence for
+  derived_from: []   # tension-NN — this tension was inspired by
+
 # ── Artifacts: re-usable building blocks for drafting ──
 
 artifacts:
@@ -57,18 +97,36 @@ artifacts:
     ready_to_use: true
   - type: anti_pattern
     content: "..."
+    ready_to_use: true
   - type: design_principle
     content: "..."
+    ready_to_use: true
   - type: open_question
     content: "..."
+    ready_to_use: true
   - type: tradeoff
     content: "..."
-  - type: terminology_evolution
-    content: "..."
+    ready_to_use: true
   - type: diagram
     content: "..."  # ASCII diagram or description
+    ready_to_use: true
   - type: unexpected_consequence
     content: "..."
+    ready_to_use: true
+  - type: failed_idea
+    content: "An approach that didn't work. Why it failed. What I learned."
+    ready_to_use: true
+  - type: false_assumption
+    content: "Something I believed that turned out incorrect. When I realized. What replaced it."
+    ready_to_use: true
+  - type: discarded_model
+    content: "A model I used and abandoned. Why it stopped fitting observations."
+    ready_to_use: true
+
+# ── Public Research Note (P2) ──
+
+research_note_number: null  # assigned when published (e.g., 14). null = not yet published.
+research_note_title: null    # the public-facing title ("Research Note #14: ...")
 
 # ── Ready-to-use formulations ──
 

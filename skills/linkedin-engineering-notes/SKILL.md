@@ -47,10 +47,11 @@ upstream_contract:
   index: "references/inventory/INDEX.yaml"
   how_to_load: "skill_view('research-tension-compiler', file_path='references/inventory/INDEX.yaml') to find available tensions. Then skill_view('research-tension-compiler', file_path='references/inventory/{cluster}/tension-NN.yaml') for the full file."
 pipeline:
-  - "Mine: session_search → candidate insights"
-  - "Classify: match insight to format"
-  - "Draft: generate post in target format"
-  - "Review gate: user approves/edits/rejects"
+  - "1. Load tension file from research-tension-compiler"
+  - "2. Pass Draft Gate (mandatory pre-flight checklist — see Draft Gate section)"
+  - "3. Identify format from tension structure"
+  - "4. Draft post: opening = observation or contradiction, NEVER current_model"
+  - "5. Review gate: user approves/edits/rejects"
 anti_patterns:
   - "How to build X in 5 minutes"
   - "Top 10 tricks"
@@ -58,6 +59,9 @@ anti_patterns:
   - "Tutorial-style content"
   - "Tool/framework announcements"
   - "Scaffolding/internal tool names leaking to audience"
+  - "Opening with Current Model instead of Contradiction"
+  - "Presenting model as finished framework"
+  - "Hiding terminology corrections"
 series_title: "AI Engineering Notes"
 numbering: "#001, #002, ..."
 ---
@@ -107,6 +111,37 @@ Trigger detection is the key. Each format has a specific pattern that signals it
 **Trigger:** deep dive into a single question
 **Structure:** Question → Approach → Findings → Open questions
 **Example:** "Decision-Centric Architecture: replacing spec cards with authorized decisions"
+
+## Draft Gate (P0 — enforced, not optional)
+
+Before writing the first sentence of any post, pass this gate. This is an architectural contract, not a guideline.
+
+```
+Draft Gate — mandatory pre-flight
+
+□ Load the tension file from research-tension-compiler
+□ Read voice_constraints from tension file
+□ Read anti_patterns_for_draft / do_not_in_draft from tension file
+□ Identify the contradiction (not the current_model) as the post's spine
+
+Opening check:
+  □ First paragraph starts with observation OR contradiction
+  □ First paragraph does NOT start with current_model
+
+Post structure check:
+  □ Current model is introduced as "the model that currently fits observations best" — not as finished truth
+  □ At least one artifact (analogy, anti_pattern, etc.) is used to ground the abstraction
+  □ Uncertainty is preserved — if tension status is "exploring", the post says so
+  □ Terminology corrections from research_progress are visible, not hidden
+
+Voice check:
+  □ Researcher tone (not mentor, not preacher)
+  □ "I" voice throughout
+  □ No scaffolding names leaked
+  □ No internal shorthand without explanation
+```
+
+If any box is unchecked, fix the draft. Do not proceed to publishing.
 
 ## Constraints
 
