@@ -40,12 +40,13 @@ formats:
     stars: 5
     trigger: "deep dive into a single question"
     structure: "Question → Approach → Findings → Open questions"
-upstream: "tension-mining"
+upstream: "narrative-shaping"
 upstream_contract:
-  skill: "tension-mining"
-  input: "tension file (YAML): observation → contradiction → hypothesis → experiment → current_model + artifacts + hooks + key_distinctions"
-  index: "references/INDEX.yaml"
-  how_to_load: "skill_view('tension-mining', file_path='references/INDEX.yaml') to find available tensions. Then skill_view('tension-mining', file_path='references/{cluster}/tension-NN.yaml') for the full file."
+  narrative: "narrative-shaping"
+  tension_source: "tension-mining"
+  input: "narrative blueprint: Research Identity + Narrative Spine + Artifacts Used + Narrative Form + Key Quotes"
+  index: "references/INDEX.yaml (in tension-mining)"
+  flow: "tension-mining → narrative-shaping → linkedin-engineering-notes (channel projection)"
 pipeline:
   - "1. Load tension file from research-tension-compiler"
   - "2. Pass Draft Gate (mandatory pre-flight checklist — see Draft Gate section)"

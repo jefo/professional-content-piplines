@@ -14,6 +14,22 @@ Most AI content discusses models, tools, frameworks, or prompts. This program op
 
 The object of study is not the agent or the LLM. It is the structure of competence, decision-making, and knowledge organization.
 
+## Production Architecture
+
+Research output flows through three layers:
+
+```
+Engineering Session
+        ↓
+  tension-mining           ← extracts tensions, observations, hypotheses
+        ↓
+  narrative-shaping        ← shapes tension into a story of changed thinking
+        ↓
+  channel-projection       ← formats story for LinkedIn / article / talk
+```
+
+Each layer is an independent skill in this repository. They are not a pipeline — they are a stack where each layer adds a dimension: structure → story → format.
+
 ## Current Research Areas
 
 ### Professional Frame Architecture
